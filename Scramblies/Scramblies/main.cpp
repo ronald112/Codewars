@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <tuple>
 #include <cassert>
+#include <map>
 
 
 /*
@@ -20,7 +21,7 @@ bool scramble(const std::string& s1, const std::string& s2) {
 	return true;
 }
 */
-
+/*
 bool scramble(const std::string& s1, const std::string& s2) {
 	auto first1 = s1.begin();
 	auto first2 = s2.begin();
@@ -32,17 +33,20 @@ bool scramble(const std::string& s1, const std::string& s2) {
 	}
 	return true;
 }
+*/
 
-/*
 #include<string>
 
 bool scramble(const std::string& s1, const std::string& s2){
 	std::map<char,int> idx;
 	for (auto &i : s1) idx[i]++;
-	for (auto &i : s2) if (idx[i]-- == 0) return false;
+	for (auto& i : s2) {
+		if (idx[i]-- == 0)
+			return false;
+	}
 	return true;
 }
-*/
+
 
 int main() {
 	assert(scramble("rkqodlw", "world") == true);
